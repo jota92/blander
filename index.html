@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>blander – Web 3D Modeling Playground</title>
+  <link rel="stylesheet" href="./styles/main.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.158/build/three.module.js",
+        "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.158/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="app">
+    <header class="top-bar">
+      <div class="branding">
+        <span class="primary">blander</span>
+        <span class="secondary">web studio</span>
+      </div>
+      <nav class="toolbar" aria-label="Add primitives">
+        <button data-action="add-cube" title="Add Cube">Cube</button>
+        <button data-action="add-sphere" title="Add UV Sphere">Sphere</button>
+        <button data-action="add-cylinder" title="Add Cylinder">Cylinder</button>
+        <button data-action="add-plane" title="Add Plane">Plane</button>
+      </nav>
+      <div class="transform-modes" aria-label="Transform mode">
+        <button data-mode="translate" class="active" title="Move (G)">Move</button>
+        <button data-mode="rotate" title="Rotate (R)">Rotate</button>
+        <button data-mode="scale" title="Scale (S)">Scale</button>
+      </div>
+    </header>
+    <main class="workspace">
+      <section id="viewport" aria-label="3D viewport"></section>
+      <aside class="inspector" aria-label="Inspector">
+        <section class="panel" id="scene-panel">
+          <h2>Scene</h2>
+          <ul id="scene-list"></ul>
+        </section>
+        <section class="panel" id="object-panel">
+          <h2>Object</h2>
+          <dl>
+            <div>
+              <dt>名前</dt>
+              <dd id="object-name">-</dd>
+            </div>
+            <div>
+              <dt>タイプ</dt>
+              <dd id="object-type">-</dd>
+            </div>
+          </dl>
+          <div class="object-controls" aria-label="Transform inputs">
+            <h3>位置</h3>
+            <div class="vector-input" data-vector="position"></div>
+            <h3>回転</h3>
+            <div class="vector-input" data-vector="rotation"></div>
+            <h3>スケール</h3>
+            <div class="vector-input" data-vector="scale"></div>
+          </div>
+          <div class="edit-controls">
+            <button id="toggle-edit-mode" disabled>編集モード (Tab)</button>
+            <div class="edit-mode-group" role="group" aria-label="編集モードの要素タイプ">
+              <button data-edit-mode="vertex" disabled>頂点 (1)</button>
+              <button data-edit-mode="face" disabled>面 (3)</button>
+            </div>
+            <button id="subdivide-object" disabled>細分化</button>
+          </div>
+          <button id="delete-object" disabled>削除 (X)</button>
+        </section>
+        <section class="panel" id="help-panel">
+          <h2>ヘルプ</h2>
+          <ul>
+            <li>左ドラッグ: 視点の回転</li>
+            <li>右ドラッグ: 選択／操作</li>
+            <li>Shift + 左ドラッグ: 平行移動</li>
+            <li>ホイール: ズーム</li>
+            <li>G / R / S: Move / Rotate / Scale</li>
+            <li>Z / Shift + Z: 元に戻す / やり直す</li>
+            <li>Tab: 編集モード切替</li>
+            <li>編集モード: 頂点をドラッグで変形</li>
+            <li>X: 選択オブジェクト削除</li>
+          </ul>
+        </section>
+      </aside>
+    </main>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

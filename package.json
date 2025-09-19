@@ -1,0 +1,15 @@
+{
+  "name": "blander",
+  "version": "1.0.0",
+  "description": "Webブラウザ上で動作する軽量な3Dモデリング環境です。Blenderの操作感を意識したUIを用意し、プリミティブの追加や変形、簡易的なオブジェクト管理をブラウザだけで体験できます。",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
